@@ -14,8 +14,10 @@ using Microsoft.Extensions.Logging.Console;
 
 namespace blogBlazor.Components.DB
 {
+
     public class DBConfiguration
     {
+        private readonly IConfiguration Configuration;
         private string connetionString = @"Data Source=SERVIDOR\SERVIDOR;Initial Catalog=Blog;User ID=sa;Password=Demo123$";
         private SqlConnection cnn;
         private SqlCommand cmd;
@@ -23,7 +25,11 @@ namespace blogBlazor.Components.DB
         private int i;
         public DBConfiguration()
         {
-            cnn = new SqlConnection(connetionString);
+            //Console.WriteLine(Configuration["AllowedHosts"]);
+
+            var builder = WebApplication.CreateBuilder();
+           // Console.WriteLine();
+            cnn = new SqlConnection(builder.Configuration["database url"]);
             Console.WriteLine("Connectionconfigured");
             return;
         }
@@ -82,6 +88,7 @@ namespace blogBlazor.Components.DB
 
         public void Update(string consulta)
         {
+
             Console.WriteLine(consulta);
             cmd = new SqlCommand(consulta, cnn);
             cmd.ExecuteNonQuery();

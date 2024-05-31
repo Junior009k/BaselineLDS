@@ -64,11 +64,59 @@ namespace blogBlazor.Components.DB
             {
                 Console.WriteLine(e.ToString());
 
-                return "Ha fallado la autenticacion";
+                return "Ha fallado algo en la base de datos";
             }
         }
 
-        public string GetMD5(string str)
+        public String changePassword(userModel model)
+        {
+            try
+            {
+                myDB.DBOpen();
+                myDB.Update("update [User] set [User].[password]='" + model.password + "' where username like '" + model.username + "'");
+                myDB.DBClose(); 
+                return "Usuario Actualizado";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return "Ha fallado al actualizar la contraseña";
+            }
+        }
+
+        public String changeName(userModel model)
+        {
+            try
+            {
+                myDB.DBOpen();
+                myDB.Update("update [User] set [User].[name]='" + model.name + "' where username like '" + model.username + "'");
+                myDB.DBClose();
+                return "Usuario Actualizado";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return "Ha fallado al actualizar el nombre";
+            }
+        }
+
+        public String deleteUser(userModel model)
+        {
+            try
+            {
+                myDB.DBOpen();
+                myDB.Update("delete [User] where username like '" + model.username + "'");
+                myDB.DBClose();
+                return "Usuario Eliminado";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return "Ha fallado al actualizar la contraseña";
+            }
+        }
+
+            public string GetMD5(string str)
         {
             MD5 md5 = MD5CryptoServiceProvider.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();

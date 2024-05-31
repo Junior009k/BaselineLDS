@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "68c7edf8-1f08-4a6a-b46f-7d18f10b5dc6",
+		"name": "Baseline LDS V1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24331281",
+		"_collection_link": "https://martian-firefly-428393.postman.co/workspace/Team-Workspace~6316a734-caa0-4d89-8291-89fddaa393f7/collection/24331281-68c7edf8-1f08-4a6a-b46f-7d18f10b5dc6?action=share&source=collection_link&creator=24331281"
+	},
+	"item": [
+		{
+			"name": "auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"token\", `${json.value.token}`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"junior009k\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"junior\",\r\n    \"username\":\"junior009k\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/changePassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"token\", `${json.value.token}`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"junior009k\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/changePassword",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"changePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/changechangeName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"token\", `${json.value.token}`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"junior009k\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/changeName",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"changeName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/deleteUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"token\", `${json.value.token}`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"junior009k\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/deleteUser",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"deleteUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
