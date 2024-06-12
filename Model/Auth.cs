@@ -15,6 +15,8 @@ namespace blogBlazor.Components.DB
         public string username { get; set; }
         [JsonProperty("password")]
         public string password { get; set; }
+        [JsonProperty("id_perfil")]
+        public int id_perfil { get; set; }
     }
     public class Auth
     {
@@ -29,7 +31,7 @@ namespace blogBlazor.Components.DB
             try
             {
                 myDB.DBOpen();
-                myDB.Insert("insert into [dbo].[User]([name],username,[password]) values ('" + model.name + "','" + model.username + "','" + model.password + "')");
+                myDB.Insert("insert into [dbo].[User]([name],username,[password],[id_perfil]) values ('" + model.name + "','" + model.username + "','" + model.password + "',"+ model.id_perfil +")");
                 myDB.DBClose();
             }
             catch (Exception e)

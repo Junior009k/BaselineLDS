@@ -1,3 +1,4 @@
+using BaselineLDS.Controllers;
 using blogBlazor.Components;
 using blogBlazor.Components.DB;
 using Microsoft.AspNetCore.Mvc;
@@ -5,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 UserController userController = new UserController();
-
+PerfilController perfilController = new PerfilController();
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
@@ -38,10 +39,12 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapPost("/api/auth/login", ([FromBody] userModel jsonstring) => userController.PostAuthenticate(jsonstring));
 app.MapPost("/api/auth/register", ([FromBody] userModel jsonstring) => userController.PostRegister(jsonstring));
-
 app.MapPut("/api/auth/changePassword", ([FromBody] userModel jsonstring) => userController.PutChangePassword(jsonstring))
     .RequireAuthorization();
+app.MapPut("/api/auth/changeName", ([FromBody] userModel jsonstring) => userController.PutChangeName(jsonstring))
+    .RequireAuthorization();
+app.MapDelete("/api/auth/deleteUser", ([FromBody] userModel jsonstring) => userController.DeleteUser(jsonstring))
+    .RequireAuthorization();
+app.MapGet("/api/admin/getPerfil", () => perfilController.getPerfil());
 app.Run();
-app.MapPut("/api/auth/changeName", ([FromBody] userModel jsonstring) => userController.PutChangeName(jsonstring));
-app.MapDelete("/api/auth/deleteUser", ([FromBody] userModel jsonstring) => userController.DeleteUser(jsonstring));
 

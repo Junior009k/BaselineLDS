@@ -15,7 +15,7 @@ public class UserController : ControllerBase
         data.password = myAuthDB.GetMD5(data.password);
         string response = myAuthDB.Authenticate(data);
         Console.WriteLine(response.Length);
-        if(response.Length == 22)
+        if(response.Length == 22 || response.Length == 35)
         {
             return Ok(new { message = response });
         }

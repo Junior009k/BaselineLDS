@@ -1,6 +1,4 @@
 
-
-
 SELECT TOP (1000) [id]
       ,[name]
       ,[username]
@@ -15,3 +13,7 @@ update [User] set [User].[name]='Junior Aquino' where [username] like 'junior009
 update [User] set [User].[name]='PRUEBA' where [username] like 'junior009k'
 
 delete [User]  where [username] like 'junior0010k'
+
+SELECT * FROM dbo.User_Perfil
+SELECT * FROM dbo.User_Perfil_Function
+SELECT * FROM dbo.User_PerfilFunctionActive
