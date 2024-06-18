@@ -45,6 +45,7 @@ app.MapPut("/api/auth/changeName", ([FromBody] userModel jsonstring) => userCont
     .RequireAuthorization();
 app.MapDelete("/api/auth/deleteUser", ([FromBody] userModel jsonstring) => userController.DeleteUser(jsonstring))
     .RequireAuthorization();
-app.MapGet("/api/admin/getPerfil", () => perfilController.getPerfil());
+app.MapGet("/api/admin/getPerfil", () => perfilController.getPerfil())
+    .RequireAuthorization();
 app.Run();
 
