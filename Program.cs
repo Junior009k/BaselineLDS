@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 
 // Configure the HTTP request pipeline.
-
+//agregue un comentario
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {
